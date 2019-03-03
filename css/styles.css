@@ -1,0 +1,262 @@
+/**
+ * Common CSS3 Classes.
+ *
+ * Classes CSS comuns a todos os projetos do sistema
+ *
+ * @version    1.0.0
+ * @package    Agencie.me
+ * @subpackage css
+ * @author     Alcindo Schleder <alcindoschleder@gmail.com>
+ *
+ */
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+header {
+    height: 7vh;
+    background-color: #607d8b;
+    color: #fff;
+}
+header h2 {
+    padding-top: 1.6vh;
+}
+header i {
+    border-bottom: 1px solid #fff;
+    margin-top: 0.8vh;
+    margin-left: 2vh;
+}
+i {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    padding: 0;
+    margin: 0;
+}
+.menu-nav-bar {
+    height: 100vh;
+    width: 60%;
+    background-color: #fff;
+    color: #000;
+    border-right: 1px solid #607d8b;
+    position: absolute;
+    left: -5000px;
+    top: 0;
+    overflow: hidden;
+    z-index: 99999;
+}
+.menu-nav-bar .menu-title {
+    height: 30vh;
+    color: #fff;
+    background-color: #607d8b;
+    background-image: url('/img/LogoVocatioIBMiCity.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.menu-nav-bar .menu-title h2 {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+}
+.menu-nav-bar .menu-list {
+    list-style: none;
+    width: 100%;
+    background-color: #607d8b;
+}
+.menu-nav-bar .menu-list li {
+    font-size: 1.5rem;
+    width: 100%;
+    color: #607d8b;
+    height: 10vh;
+    line-height: 10vh;
+    border-bottom: 1px solid graytext;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+.menu-nav-bar .menu-list li i {
+    color: #fff;
+    background-color: #607d8b;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 10vh;
+    width: 3.5rem;
+}
+.menu-nav-bar .menu-list li a {
+    padding-left: 0;
+    text-decoration: none;
+}
+.menu-nav-bar .menu-list li:hover,
+.menu-nav-bar .menu-list li i:hover,
+.menu-nav-bar .menu-list li a:hover {
+    color: #64B5F6;
+}
+.menu-nav-bar .menu-list li:active,
+.menu-nav-bar .menu-list li i:active,
+.menu-nav-bar .menu-list li a:active {
+    color: #63e5de;
+}
+/******************************************
+|              Content Page               |
+******************************************/
+.main-content {
+    height: 86vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+/* Content Header TollBar */
+
+.main-content .content-header {
+    background: linear-gradient(to bottom, #607d8b 0%,#7799aa 50%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -webkit-linear-gradient(top, #607d8b 0%,#7799aa 50%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: -moz-linear-gradient(top, #607d8b 0%, #7799aa 33%, #ffffff 100%); /* FF3.6-15 */
+    height: 10%;
+    width: 100vw;
+    padding-top: 10px;
+    padding-left: 0.5rem;
+    color: #fff
+}
+.main-content .content-header .header-toolbar {
+    width: fit-content;
+    color: rgba(0, 0, 0, 0.1);
+    float: left;
+}
+.main-content .content-header .header-toolbar .header-toolbar-close {
+    border-left: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+.main-content .content-header .main-content-title {
+    width: fit-content;
+    float: right;
+    text-align: right;
+    padding-right: 7rem;
+}
+/* icons of tool bars  */
+
+.label__checkbox {
+    display: none;
+}
+.label__check {
+    display: inline-block;
+    border-radius: 50%;
+    border: 5px solid rgba(0,0,0,0.1);
+    background: white;
+    vertical-align: middle;
+    margin-right: 2px;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border .3s ease;
+}
+.label__check i .icon {
+    opacity: 0.2;
+    font-size: 'calc(1rem + 1vw)';
+    color: transparent;
+    transition: opacity .3s .1s ease;
+    -webkit-text-stroke: 3px rgba(0,0,0,0.5);
+}
+.label__check:hover {
+    border: 5px solid rgba(0,0,0,0.2);
+}  
+.label__checkbox:checked + .label__text .label__check {
+    animation: check .5s cubic-bezier(0.895, 0.030, 0.685, 0.220) forwards;
+}
+.label__checkbox:checked + .label__text .label__check .icon {
+    opacity: 1;
+    transform: scale(0);
+    color: white;
+    -webkit-text-stroke: 0;
+    animation: icon .3s cubic-bezier(1.000, 0.008, 0.565, 1.650) .1s 1 forwards;
+}
+    
+/*  
+.center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+*/
+@keyframes icon {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+  
+@keyframes check {
+    0% {
+        width: 1.5em;
+        height: 1.5em;
+        border-width: 5px;
+    }
+    10% {
+        width: 1.5em;
+        height: 1.5em;
+        opacity: 0.1;
+        background: rgba(0,0,0,0.2);
+        border-width: 15px;
+    }
+    12% {
+        width: 1.5em;
+        height: 1.5em;
+        opacity: 0.4;
+        background: rgba(0,0,0,0.1);
+        border-width: 0;
+    }
+    50% {
+        width: 2em;
+        height: 2em;
+        background: #63e5de;
+        border: 0;
+        opacity: 0.6;
+    }
+    100% {
+        width: 2em;
+        height: 2em;
+        background: #63e5de;
+        border: 0;
+        opacity: 1;
+    }
+}
+.main-content .content-body {
+    clear: both;
+    height: 90%;
+    width: 100%;
+    border-bottom: 1px solid orange;
+}
+.main-content .google-map {
+    height: 94%;
+    width: 100%;
+}
+footer {
+    line-height: 7vh;
+    height: 7vh;
+    color: #fff;
+    background: linear-gradient(to bottom, #ffffff 0%,#7799aa 50%,#607d8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#7799aa 50%,#607d8b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: -moz-linear-gradient(top, #ffffff 0%, #7799aa 33%, #607d8b 100%); /* FF3.6-15 */
+}

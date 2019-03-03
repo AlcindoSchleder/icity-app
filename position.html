@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+You can use the included code, but you cannot remove this 
+copyright notice. Send me any comments and updates.
+This software is licensed under MPL License,
+see http://www.mozilla.org/MPL/ for datails.
+
+Contact: (alcindo@vocatiotelecom.com.br)
+          http://www.vocatiotelecom.com.br
+-->
+<html>
+    <head>
+        <title>Busca local do Twitter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="main">
+            <label for="kwBox">Search Twitter do cai:</label>
+            <input type="text" id="kwBox"/>
+            <input type="button" value="Go!" onclick="startSearch()"/>
+        </div>
+        <div id="results">
+        </div>
+        <script src="../templates/js/plugins/jquery/jquery-2.1.3.min.js"></script> <!-- jQuery -->
+        <script type="text/javascript">
+            let callError = function (error) {
+                alert("Got an error, code: " + error.code + " message: " + error.message);
+            };
+            function startSearch() {
+                var gps = navigator.geolocation;
+                if (gps) {
+                    gps.getCurrentPosition(searchTwitter, callError);
+                } else {
+                    searchTwitter();
+                }
+            };
+            function searchTwitter(position) {
+                let query = "https://api.twitter.com/1.1/search/tweets.json?callback=showResults&q=";
+                //let query = "http://twitter.com/search?q=place%3A07d9cd6afd884001"
+                query += $("kwBox").value;
+                if (position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    query += "&geocode=" + escape(lat + "," + long + ",50mi");
+                }
+                var script = document.createElement("script");
+                script.src = query;
+                document.getElementsByTagName("head")[0].appendChild(script);
+            };
+        </script>
+    </body>
+</html>
